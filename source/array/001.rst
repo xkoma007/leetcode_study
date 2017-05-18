@@ -7,3 +7,5 @@
 
     python/001.rst
     java/001.rst
+    c++_1/001.rst
+    c++_2/001.rst
