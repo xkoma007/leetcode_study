@@ -1,9 +1,5 @@
-
-数组
-----
-
 .. toctree::
     :maxdepth: 2
     :glob:
-    
-    array/index
+
+    001.rst

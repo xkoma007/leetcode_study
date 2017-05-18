@@ -31,6 +31,15 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 
 import sphinx_rtd_theme
+
+from recommonmark.parser import CommonMarkParser
+
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+
+source_suffix = ['.rst', '.md']
+
 # ones.
 extensions = ['sphinx.ext.autodoc',
     'sphinx.ext.todo',

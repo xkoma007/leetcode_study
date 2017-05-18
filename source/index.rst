@@ -6,10 +6,12 @@
 Welcome to leetcode_study's documentation!
 ==========================================
 
+
 .. toctree::
    :maxdepth: 2
 
-   array        
+   array
+   string
 
 Indices and tables
 ==================

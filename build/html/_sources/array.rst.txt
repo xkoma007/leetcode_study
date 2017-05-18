@@ -1,8 +1,9 @@
-intro
-=====
 
-哈哈哈贼溜
------
+数组
+----
 
-asfaf
------
+.. toctree::
+    :maxdepth: 2
+    :glob:
+    
+    array/index
