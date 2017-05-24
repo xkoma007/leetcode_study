@@ -17,4 +17,4 @@ The fastest way to get response from our developers is to send email to our mail
 
 License
 ============
-Please refer to [LICENSE](https://github.com/apache/kylin/blob/master/LICENSE) file.
+Please refer to [LICENSE](https://github.com/beyondkoma/leetcode_study/blob/master/LICENSE) file.
