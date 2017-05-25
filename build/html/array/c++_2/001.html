@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="leetcode_study 1.0 documentation" href="../../index.html"/> 
+    <link rel="top" title="leetcode_study 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="001_TwoSum" href="../001.html"/>
+        <link rel="next" title="566_Reshape_the_Matrix" href="../566.html"/>
+        <link rel="prev" title="c++题解1" href="../c++_1/001.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -88,8 +91,23 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../array.html">数组</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../array.html">数组</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../001.html">001_TwoSum</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../python/001.html">python题解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../java/001.html">java题解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../c++_1/001.html">c++题解1</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">c++题解2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">题意</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">解答思路</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">代码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../566.html">566_Reshape_the_Matrix</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../string.html">字符串</a></li>
 </ul>
 
@@ -135,6 +153,12 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="../../array.html">数组</a> &raquo;</li>
+        
+          <li><a href="../index.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="../001.html">001_TwoSum</a> &raquo;</li>
+        
       <li>c++题解2</li>
     
     
@@ -156,6 +180,70 @@
             
   <div class="section" id="c-2">
 <h1>c++题解2<a class="headerlink" href="#c-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>题意<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>给定一个整数数组，如果存在两个元素相加等于一个特定值，返回这两个元素的索引。</p>
+<p>假设每个输入都只有一个解决方案，且不能使用相同的元素两次。</p>
+<p>例</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>nums = [2, 7, 11, 15], target = 9
+
+由于 nums[0] + nums[1] = 2 + 7 = 9，所以 [0, 1]。
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>解答思路<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>第一次遍历数组，将数组的元素和索引作为 key/value 存到 unordered_map。</li>
+<li>第二次遍历数组，查找 target - i 的值是否在 unordered_map 中，如果在，将元素下标返回。</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>代码<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c++"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">twoSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ret</span><span class="p">;</span>
+        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">});</span>  <span class="c1">// &lt;key:element, value:index&gt;</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">auto</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">target</span> <span class="o">-</span> <span class="o">*</span><span class="n">it</span><span class="p">);</span>
+            <span class="c1">// the index in the vector can not be the same as in unordered_map</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">it2</span> <span class="o">!=</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">it</span> <span class="o">-</span> <span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="o">!=</span> <span class="n">it2</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">ret</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">it</span> <span class="o">-</span> <span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+                <span class="n">ret</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">it2</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 </div>
 
 
@@ -165,6 +253,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../566.html" class="btn btn-neutral float-right" title="566_Reshape_the_Matrix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../c++_1/001.html" class="btn btn-neutral" title="c++题解1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

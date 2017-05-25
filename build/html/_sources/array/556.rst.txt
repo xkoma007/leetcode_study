@@ -1,0 +1,10 @@
+556_Reshape_the_Matrix
+======================
+
+.. toctree::
+    :maxdepth: 2
+    :glob:
+   
+    python/001.rst
+    c++_2/556.rst
+       

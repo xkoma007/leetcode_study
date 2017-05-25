@@ -1,0 +1,8 @@
+566_Reshape_the_Matrix
+======================
+
+.. toctree::
+    :maxdepth: 2
+    :glob:
+
+    c++_2/566.rst
